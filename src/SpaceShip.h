@@ -18,8 +18,17 @@ public:
 	void update() override;
 	void clean() override;
 
+	//getters and setters
+	void setDestination(glm::vec2 destination);
+	void setMaxSpeed(float speed);
+
 private:
 
+	glm::vec2 m_destination;
+	glm::vec2 m_targetDirection;
+	float m_maxSpeed;
+	
+	void m_Move();
 	
 };
 
