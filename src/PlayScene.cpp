@@ -6,6 +6,7 @@
 #include "imgui.h"
 #include "imgui_sdl.h"
 #include "Renderer.h"
+#include "Util.h"
 
 PlayScene::PlayScene()
 {
@@ -86,6 +87,12 @@ void PlayScene::GUI_Function() const
 	if (ImGui::SliderFloat("MaxSpeed", &speed, 0.0f, 100.0f))
 	{
 		m_pSpaceShip->setMaxSpeed(speed);
+	}
+
+	static float angleInRadians = 0.0f;
+	if (ImGui::SliderAngle("Orientation Angle", &angleInRadians))
+	{
+		m_pSpaceShip->setRotation(angleInRadians * Util::Rad2Deg);
 	}
 	
 	if(ImGui::Button("Start"))
